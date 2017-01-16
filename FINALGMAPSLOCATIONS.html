@@ -140,7 +140,7 @@ function initMap() {
 	nchu.lat = school[1].lat;
 	nchu.lng = school[1].lng;
   myMap = new google.maps.Map(document.getElementById('map'), {
-    zoom: 16,
+    zoom: 12,
     center: nchu,
   });
 	addView(nchu);
@@ -186,8 +186,8 @@ function addView(viewPlace){
 		document.getElementById('pano'), {
         position: viewPlace,
         pov: {
-			heading:195.44470068237538,
-			pitch:11.369987975856844
+			heading:201.21031072331948,
+			pitch:16.774324271932613
         }
       });
 		myMap.setStreetView(panorama);
@@ -229,11 +229,11 @@ function deleteMarkers() {
   markers = [];
 }
 function listing(){
-  for(i=0;i<6;i++){
+  for(i=0;i<10;i++){
 	var str = "";
 	<!-- str += "<a class='dropdown-button btn' href='#' data-activates='dropdown"+i+"'>Data"+i+"</a>" -->
 	<!-- str += "<ul id='dropdown"+i+"' class='dropdown-content'>" -->
-	for(j=0;j<6;j++)
+	for(j=0;j<10;j++)
 		str += '<li><a href="javascript:add('+(j+10*i)+')">'+school[(j+10*i)].place+'</a></li>'
 	<!-- str += "</ul>" -->
 	document.getElementById("dropdown"+i).innerHTML = str;
@@ -263,6 +263,10 @@ function listing(){
 		<a class='dropdown-button btn' href='#' data-activates='dropdown5'>Data5</a>
 		<ul id='dropdown5' class='dropdown-content'>
 		</ul>
+		<a class='dropdown-button btn' href='#' data-activates='dropdown6'>Data6</a>
+		<ul id='dropdown6' class='dropdown-content'>
+		</ul>
+		
     </div>
     <div id="map"></div>
    <div id="pano"></div>
