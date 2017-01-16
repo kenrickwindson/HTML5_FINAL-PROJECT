@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <script>
+	var xmlhttp = new XMLHttpRequest();
+	var url = "https://emma.pixnet.cc/mainpage/blog/categories/hot/23?page=1&per_page=10&api_version=2&format=json";
+	xmlhttp.onreadystatechange = function(){
+		if(this.readyState==4&&this.status==200){
+			var myArr = JSON.parse(this.responseText);
+			myFunction(myArr.articles);
+		}
+	}
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+	
+	var list = [
+	  {"iL":"",
+		"tL":"China",
+		"pL":"北京<br>上海",
+		"hL":"https://goo.gl/maps/cpYAt66qda72"},
+	  {"iL":"https://www.americancorner.org.tw/zh/facts_flag/201101-flag.jpg",
+		"tL":"America",
+		"pL":"紐約<br>矽谷",
+		"hL":"https://goo.gl/maps/CsidRWQ5g8n"},
+	  {"iL":"http://www.mofa.gov.tw/Upload/Sites/FlagUrlLink/32012246-cb8b-424b-8ba5-4a35445105f3.gif",
+		"tL":"Japan",
+		"pL":"大板<br>東京",
+		"hL":"https://goo.gl/maps/vFybW94mxDS2"},
+	  {"iL":"http://pic.pimg.tw/taiwanroc/49a24216d7ac5.png",
+		  "tL":"Taiwan",
+		  "pL":"台北<br>高雄",
+		  "hL":"https://goo.gl/maps/4DARp3vbcMz"},
+	  ];
+	  var str='';
+	  function myFunction(data){
+		for(i = 0;i<data.length;i++){
+			if(data[i].thumb !="")str += '<li class="collection-item avatar"><img src="'+data[i].thumb+ '"alt="" class="circle">';
+			if(data[i].title !="")str += '<a class="title" href="'+data[i].link+'">'+data[i].title+'</a>'+'<p></p>';
+			if(data[i].summary !="")str += '<p>'+ data[i].summary + '</p><p>tags: ';
+			if(data[i].tags.length !=0)for(j=0;j<data[i].tags.length;j++) str += data[i].tags[j].tag +', ';
+			str += '</p><a href="#" class="secondary-content"><i class="material-icons">grade</i></a></li>';
+		}	
+	  document.getElementById("aaa").innerHTML = str;
+	  }
+	  
+	  </script>
+	  
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+    <ul class="collection" id = "aaa">
+	</ul>
+	</body>
+  </html>
+       
