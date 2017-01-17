@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+       <!--Import jQuery before materialize.js-->
+	   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+	<script>
+		var list =["https://www.youtube.com/embed/V7PU9KChh7M","https://www.youtube.com/embed/XT6zacadf08","https://www.youtube.com/embed/qmA_63IX7g8" ,"https://www.youtube.com/embed/m0ANa4DDoJI","https://www.youtube.com/embed/uxyhb-w3DYg"]
+		function changeVideo(i){
+		document.getElementById("frame").src = list[i];
+		document.getElementById("P"+i).className = "collection-item active";
+	  }
+	</script>
+    </head>
+
+    <body>
+		<div class="video-container">
+			<iframe id="frame" width="560" height="315" src="https://www.youtube.com/embed/V7PU9KChh7M" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div class="collection">
+			<a id="P0" href="javascript:changeVideo(0)" class="collection-item active">CAMPUS INTRODUCTION</a>
+			<a id="P1" href="javascript:changeVideo(1)" class="collection-item">NCHU CAMPUS SONG</a>
+			<a id="P2" href="javascript:changeVideo(2)" class="collection-item">105 YEAR GRADUATE OFFICIAL MV</a>
+			<a id="P3" href="javascript:changeVideo(3)" class="collection-item">CHEERLEADER COMPETITION</a>
+			<a id="P4" href="javascript:changeVideo(4)" class="collection-item">NEW MALE DORM</a>
+		</div>
+		<footer class="page-footer">
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 KENRICK WINDSON | ALL RIGHT RESERVED
+            <a class="grey-text text-lighten-4 right" href="https://kenrickwindson.github.io/HTML5_FINAL-PROJECT/KENRICK%20FINAL%20PROJECT.html">NCHU STUDENTS HELPER</a>
+            </div>
+          </div>
+        </footer>
+    </body>
+  </html>
